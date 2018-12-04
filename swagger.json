@@ -1,0 +1,710 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "ORJ Elysee"
+  },
+  "host": "localhost:3000",
+  "tags": [
+    {
+      "name": "Armory",
+      "description": "Everything about Elysee's armory"
+    },
+    {
+      "name": "Intervention_group",
+      "description": "Access to available Intervention Group"
+    },
+    {
+      "name": "Mission",
+      "description": "Define Mission of your CRS, gouvern and conquer"
+    }
+  ],
+  "paths": {
+    "/armory": {
+      "get": {
+        "tags": [
+          "Armory"
+        ],
+        "summary": "Get List of content of Armory",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Armory"
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/armory/{armoryId}": {
+      "get": {
+        "tags": [
+          "Armory"
+        ],
+        "summary": "Get an armory by Id",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "armoryId",
+            "in": "path",
+            "description": "ID of Armory",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/Armory"
+            }
+          },
+          "400": {
+            "description": "Invalid Id",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Armory"
+        ],
+        "summary": "Add a new mission, Sir ! Yes ! Sir !",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "armoryId",
+            "in": "path",
+            "description": "ID of Armory",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Armory"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Mission Created",
+            "schema": {
+              "$ref": "#/definitions/Armory"
+            }
+          },
+          "400": {
+            "description": "Invalid Id",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Armory"
+        ],
+        "summary": "Abort mission",
+        "parameters": [
+          {
+            "name": "armoryId",
+            "in": "path",
+            "description": "ID of Armory",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Ok, No Content"
+          },
+          "400": {
+            "description": "Invalid Id",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Armory"
+        ],
+        "summary": "Update Armory",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "armoryId",
+            "in": "path",
+            "description": "ID of Armory",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Armory"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Armory"
+            }
+          },
+          "400": {
+            "description": "Invalid Id",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    },
+
+    "/mission": {
+      "get": {
+        "tags": [
+          "Mission"
+        ],
+        "summary": "Get List of content of Defined Mission",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Mission"
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/mission/{missionId}": {
+      "get": {
+        "tags": [
+          "Mission"
+        ],
+        "summary": "Get A mission by Id",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "missionId",
+            "in": "path",
+            "description": "ID of Mission",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/Mission"
+            }
+          },
+          "400": {
+            "description": "Invalid Id",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Mission"
+        ],
+        "summary": "Add a new mission, Sir ! Yes ! Sir !",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "missionId",
+            "in": "path",
+            "description": "ID of Mission",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Mission"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Mission Created",
+            "schema": {
+              "$ref": "#/definitions/Mission"
+            }
+          },
+          "400": {
+            "description": "Invalid Id",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Mission"
+        ],
+        "summary": "Abort mission",
+        "parameters": [
+          {
+            "name": "missionId",
+            "in": "path",
+            "description": "ID of Mission",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Ok, No Content"
+          },
+          "400": {
+            "description": "Invalid Id",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Mission"
+        ],
+        "summary": "Update Mission",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "missionId",
+            "in": "path",
+            "description": "ID of Mission",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Mission"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Mission"
+            }
+          },
+          "400": {
+            "description": "Invalid Id",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    },
+
+    "/intervention_group": {
+      "get": {
+        "tags": [
+          "Intervention_group"
+        ],
+        "summary": "Get List of content of Intervention_group",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Intervention_group"
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/intervention_group/{groupId}": {
+      "get": {
+        "tags": [
+          "Intervention_group"
+        ],
+        "summary": "Get an intervention group by Id",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "ID of Intervention_group",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/Intervention_group"
+            }
+          },
+          "400": {
+            "description": "Invalid Id",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Intervention_group"
+        ],
+        "summary": "Add a new Intervention_group, Sir ! Yes ! Sir !",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "ID of Intervention_group",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Intervention_group"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Mission Created",
+            "schema": {
+              "$ref": "#/definitions/Intervention_group"
+            }
+          },
+          "400": {
+            "description": "Invalid Id",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Intervention_group"
+        ],
+        "summary": "Delete Intervention_group",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "ID of Intervention_group",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Ok, No Content"
+          },
+          "400": {
+            "description": "Invalid Id",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Intervention_group"
+        ],
+        "summary": "Update Intervention_group",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "ID of Intervention_group",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Intervention_group"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Intervention_group"
+            }
+          },
+          "400": {
+            "description": "Invalid Id",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Location": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "lat": {
+          "type": "number"
+        },
+        "long": {
+          "type": "number"
+        }
+      },
+      "xml": {
+        "name": "Location"
+      }
+    },
+    "Mission": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "location_id": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "Mission"
+      }
+    },
+    "Armory": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "cost": {
+          "type": "integer"
+        },
+        "stock": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "Armory"
+      }
+    },
+    "Crs": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "group_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "access_level": {
+          "type": "string"
+        },
+        "registration_number": {
+          "type": "integer"
+        },
+        "dream": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "CRS"
+      }
+    },
+    "Intervention_group": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "barrack_location_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "InterventionGroup"
+      }
+    },
+    "Mission_equipment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "armory_id": {
+          "type": "string"
+        },
+        "mission_id": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer"
+        }
+      },
+      "xml": {
+        "name": "MissionEquipment"
+      }
+    },
+    "Mission_intervention_group": {
+      "type": "object",
+      "properties": {
+        "mission_id": {
+          "type": "string"
+        },
+        "intervention_group_id": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "MissionInterventionGroup"
+      }
+    },
+    "Migration_versions": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "number"
+        }
+      },
+      "xml": {
+        "name": "MigrationVersions"
+      }
+    },
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "schemes": [
+    "https",
+    "http"
+  ]
+}
